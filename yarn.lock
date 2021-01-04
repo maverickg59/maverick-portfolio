@@ -7269,15 +7269,15 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
-maverick-toolkit-css@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/maverick-toolkit-css/-/maverick-toolkit-css-0.2.0.tgz#6bb410a936b1cd2e49c8d026f5e54986799e44b9"
-  integrity sha512-4fvWbb/HJ1N2k2RO7pWU/cDrzUOy97Qipzli03TgbOdsTEWW7VyRc+yH4ORiKNjaYeoPa3iGFAWzTQeI6E/6hw==
+maverick-toolkit-css@^0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/maverick-toolkit-css/-/maverick-toolkit-css-0.2.3.tgz#7b858cea9ba7c5cf40555544ba82f050bd48b500"
+  integrity sha512-rdwTqKExSUb4Anlhi4tNurXiO/LX4NBSX3HZpUeuuyR2qu6yuabP596qw3wZnI/Ps+1KG6kz4wct74BFedvT7A==
 
-maverick-toolkit-react@^0.1.10:
-  version "0.1.10"
-  resolved "https://registry.yarnpkg.com/maverick-toolkit-react/-/maverick-toolkit-react-0.1.10.tgz#8e8d50dec545f4d3af5b29112d90f1051f605d86"
-  integrity sha512-oGE4ilWsB2w7/fs9D4Wgm1PH974mdyHWqgEQXVoM8a37aMQPlYPyU6wck52ZDgkYT94QjeM9chuI6va9ZJaKpg==
+maverick-toolkit-react@^0.1.11:
+  version "0.1.11"
+  resolved "https://registry.yarnpkg.com/maverick-toolkit-react/-/maverick-toolkit-react-0.1.11.tgz#841c355bba72b8e2bfbca1f723f7f5542d5af871"
+  integrity sha512-c7GyF+fn+oQJkdOGCRVKivvvuRulkxK4oNtigJ5KH7KqUTNhjrn1iRDM3xyPZ7UtBOGBFLw3K5wyKp4nya+erg==
   dependencies:
     "@fortawesome/fontawesome-svg-core" "^1.2.32"
     "@fortawesome/free-solid-svg-icons" "^5.15.1"
