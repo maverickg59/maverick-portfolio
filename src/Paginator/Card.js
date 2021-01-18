@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 const Card = ({ title, value }) => {
   return (
-    <div>
+    <div className='o-row'>
       <p>{title}</p>
       <p>{value}</p>
     </div>
@@ -12,7 +12,7 @@ const Card = ({ title, value }) => {
 
 Card.propTypes = {
   title: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.number.isRequired,
 }
 
 export default Card

@@ -9,7 +9,7 @@ function App() {
   return (
     <Router>
       <section>
-        <Paginator records={mockData} rows={5} adjacents={0} />
+        <Paginator records={mockData} rows={10} adjacents={2} />
         <Switch>
           <Route exact path='/' component={Home} />
           <Route exact path='/resume' component={Resume} />
