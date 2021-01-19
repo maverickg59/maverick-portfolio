@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import cn from 'classnames'
+import { refIndex } from './'
 
 const Block = ({
   dispatch,
@@ -12,8 +13,12 @@ const Block = ({
   blockIndex,
   adjacentPages,
   rangeLength,
+  blockRefs,
 }) => {
   const handlePageChange = () => {
+    blockRefs.current[
+      refIndex(blockIndex, pages, currentPage, rangeLength)
+    ].focus()
     const adjacents = adjacentPages * 2
     if (blockIndex === 0) {
       const minPage = page <= 1 ? principalIndex : page - 1
@@ -35,11 +40,13 @@ const Block = ({
       })
     }
   }
-
   return (
     <li>
       <button
-        className={cn({
+        ref={ref => {
+          blockRefs.current[blockIndex] = ref
+        }}
+        className={cn('c-paginator__block', {
           'c-paginator__block--active': content - 1 === currentPage,
         })}
         onClick={() => handlePageChange()}>
@@ -59,6 +66,7 @@ Block.propTypes = {
   blockIndex: PropTypes.number.isRequired,
   adjacentPages: PropTypes.number.isRequired,
   rangeLength: PropTypes.number.isRequired,
+  blockRefs: PropTypes.shape({}).isRequired,
 }
 
 export default Block

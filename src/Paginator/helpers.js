@@ -1,3 +1,11 @@
+const blockIndices = (principalIndex, depth) => {
+  const range = []
+  for (let i = principalIndex; i < principalIndex + depth; i++) {
+    range.push(i)
+  }
+  return range
+}
+
 const handleInsufficientRange = (
   pages,
   minPages,
@@ -27,13 +35,6 @@ export const range = (
   pagesArray,
   dispatch
 ) => {
-  const blockIndices = (principalIndex, depth) => {
-    const range = []
-    for (let i = principalIndex; i < principalIndex + depth; i++) {
-      range.push(i)
-    }
-    return range
-  }
   if (pages <= 5) {
     return pagesArray
   }
@@ -71,5 +72,29 @@ export const range = (
       }
       return results
     }, [])
+  }
+}
+
+export const refIndex = (blockIndex, pages, currentPage, rangeLength) => {
+  switch (true) {
+    case blockIndex === 0: {
+      if (currentPage === 0 || currentPage === 1 || currentPage === 2) {
+        return blockIndex
+      }
+      return blockIndex + 1
+    }
+    case blockIndex === rangeLength: {
+      if (
+        currentPage === pages - 1 ||
+        currentPage === pages - 2 ||
+        currentPage === pages - 3
+      ) {
+        return blockIndex
+      }
+      return blockIndex - 1
+    }
+    default: {
+      return blockIndex
+    }
   }
 }

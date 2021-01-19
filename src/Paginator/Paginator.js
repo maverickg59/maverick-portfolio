@@ -1,12 +1,13 @@
-import React, { Fragment, useReducer } from 'react'
+import React, { Fragment, useReducer, useRef } from 'react'
 import PropTypes from 'prop-types'
 import { ArrowBlock, LimitBlock, Block, Card, chunk, range } from './'
 import './_paginator.scss'
 
-function Paginator({ records, rows, adjacents }) {
-  const pages = Math.ceil(records.length / rows)
+function Paginator({ data, children, records, rows, adjacents }) {
+  const pages = data.length ? data.length : Math.ceil(records.length / rows)
+  const refs = useRef([])
   const initialState = {
-    chunkedPages: chunk(records, rows),
+    chunkedPages: data.length ? data : chunk(records, rows),
     pagesArray: [...Array(pages).keys()],
     adjacentPages: adjacents ? adjacents : 0,
     rangeLength: 2 + adjacents * 2,
@@ -17,12 +18,12 @@ function Paginator({ records, rows, adjacents }) {
   }
 
   // TODO
-  // if pages < 6 return only range plus left and right arrows
+  // pass children instead of card
+  // ellipsis
+  // accessibility
   // handle range === 7 && adjacents === 1 - this causes a skip on right arrow
   // handle range === 9 && adjacents === 2 - this causes a skip on right arrow
-  // accessibility
   // core styling
-  // handle chunked array to be passed as data over chunk(records/rows)
 
   function reducer(state, { type, payload }) {
     switch (type) {
@@ -42,9 +43,7 @@ function Paginator({ records, rows, adjacents }) {
         throw new Error()
     }
   }
-
   const [state, dispatch] = useReducer(reducer, initialState)
-
   const {
     chunkedPages,
     pagesArray,
@@ -62,59 +61,70 @@ function Paginator({ records, rows, adjacents }) {
       })}
       <nav>
         <ul className='o-row'>
-          <ArrowBlock
-            dispatch={dispatch}
-            content='<'
-            pages={pages}
-            currentPage={currentPage}
-            blockType='leftArrow'
-            adjacentPages={adjacentPages}
-          />
-          <LimitBlock
-            dispatch={dispatch}
-            content='1'
-            currentPage={currentPage}
-            blockType='first'
-            adjacentPages={adjacentPages}
-          />
-          {range(
-            pages,
-            principalIndex,
-            adjacentPages,
-            pagesArray,
-            dispatch
-          ).map((page, blockIndex) => {
-            return (
-              <Block
-                key={`${page.title}${blockIndex}`}
+          {[
+            <ArrowBlock
+              key='arrow-left'
+              dispatch={dispatch}
+              content='<'
+              pages={pages}
+              currentPage={currentPage}
+              blockType='leftArrow'
+              adjacentPages={adjacentPages}
+            />,
+            pages > 5 && (
+              <LimitBlock
+                key='limit-left'
                 dispatch={dispatch}
-                content={page + 1}
+                content='1'
                 currentPage={currentPage}
-                page={page}
-                pages={pages}
-                principalIndex={principalIndex}
-                blockIndex={blockIndex}
+                blockType='first'
                 adjacentPages={adjacentPages}
-                rangeLength={rangeLength}
               />
-            )
-          })}
-          <LimitBlock
-            dispatch={dispatch}
-            content={pages}
-            currentPage={currentPage}
-            blockType='last'
-            pages={pages}
-            adjacentPages={adjacentPages}
-          />
-          <ArrowBlock
-            dispatch={dispatch}
-            content='>'
-            pages={pages}
-            blockType='rightArrow'
-            currentPage={currentPage}
-            adjacentPages={adjacentPages}
-          />
+            ),
+            range(
+              pages,
+              principalIndex,
+              adjacentPages,
+              pagesArray,
+              dispatch
+            ).map((page, blockIndex) => {
+              return (
+                <Block
+                  key={blockIndex}
+                  blockRefs={refs}
+                  dispatch={dispatch}
+                  content={page + 1}
+                  currentPage={currentPage}
+                  page={page}
+                  pages={pages}
+                  principalIndex={principalIndex}
+                  blockIndex={blockIndex}
+                  adjacentPages={adjacentPages}
+                  rangeLength={rangeLength}
+                />
+              )
+            }),
+            pages >= 6 && (
+              <LimitBlock
+                key='limit-right'
+                dispatch={dispatch}
+                content={pages}
+                currentPage={currentPage}
+                blockType='last'
+                pages={pages}
+                adjacentPages={adjacentPages}
+              />
+            ),
+            <ArrowBlock
+              key='arrow-right'
+              dispatch={dispatch}
+              content='>'
+              pages={pages}
+              blockType='rightArrow'
+              currentPage={currentPage}
+              adjacentPages={adjacentPages}
+            />,
+          ]}
         </ul>
       </nav>
     </Fragment>
@@ -124,11 +134,14 @@ function Paginator({ records, rows, adjacents }) {
 export default Paginator
 
 Paginator.propTypes = {
+  children: PropTypes.node.isRequired,
   records: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   rows: PropTypes.number.isRequired,
   Pages: PropTypes.number,
+  data: PropTypes.arrayOf(PropTypes.shape([])),
 }
 
 Paginator.defaultProps = {
   adjacents: 0,
+  data: [],
 }

@@ -30,7 +30,7 @@ const LimitBlocks = ({
   return (
     <li>
       <button
-        className={cn({
+        className={cn('c-paginator__block', {
           'c-paginator__block--active': content - 1 === currentPage,
         })}
         onClick={() => handlePageChange()}>

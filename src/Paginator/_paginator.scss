@@ -2,6 +2,25 @@ ul {
   list-style: none;
 }
 
+p {
+  margin: 0px;
+}
+
 .c-paginator__block--active {
   background-color: rgb(255, 0, 157);
+}
+
+.c-paginator__block {
+  &:focus,
+  &:hover {
+    background-color: rgb(255, 0, 157);
+  }
+}
+.c-paginator__arrow-block {
+  &:active {
+    background-color: rgb(255, 0, 157);
+  }
+  &:hover {
+    border-color: rgb(255, 0, 157);
+  }
 }

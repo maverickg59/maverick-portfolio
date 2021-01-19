@@ -65,7 +65,11 @@ const ArrowBlock = ({
 
   return (
     <li>
-      <button onClick={() => handlePageChange()}>{content}</button>
+      <button
+        className='c-paginator__arrow-block'
+        onClick={() => handlePageChange()}>
+        {content}
+      </button>
     </li>
   )
 }
