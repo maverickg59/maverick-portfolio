@@ -1,6 +1,6 @@
 # Paginator
 
-The code contained on the pagination branch of my portfolio is left in place to retain commit history. This component is not complete as it lives on this branch of my repo. Find the TODO list below:
+This code contained in my portfolio is left in place to retain commit history. This component is not complete as it lives on this branch of my repo. This component has been migrated to my design system. Find the TODO list below:
 
 ## TODO
 
@@ -16,7 +16,7 @@ Up to the point I started building this component I'd never written a pagination
 
 Standard pagination isn't entirely too complex, but what made this tricky is replacing the standard >> double arrow indicating a navigation to the first or last page with a first and last indexed block. After about a dozen tutorials and probably five failed implementations I realized it was necessary to define each object as it's composed to clarify the high level view of the component.
 
-I've left my original definitions mostly intact and haven't added any. They're no longer necessary for me as I have an intimate understanding of my component, but they may help you to understand what's going on.
+I've left my original definitions mostly intact and haven't added any. They may help you to understand what's going on.
 
 I also found it necessary to define the the output of each possible configuration of the paginator. This helped me to understand the effect of each action as the paginator is in play.
 
