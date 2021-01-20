@@ -1,6 +1,6 @@
 import React, { Fragment, useReducer, useRef } from 'react'
 import PropTypes from 'prop-types'
-import { ArrowBlock, LimitBlock, Block, Card, chunk, range } from './'
+import { ArrowBlock, LimitBlock, Block, chunk, range } from './'
 import './_paginator.scss'
 
 function Paginator({ data, children, records, rows, adjacents }) {
@@ -16,14 +16,6 @@ function Paginator({ data, children, records, rows, adjacents }) {
       principalIndex: 1,
     },
   }
-
-  // TODO
-  // pass children instead of card
-  // ellipsis
-  // accessibility
-  // handle range === 7 && adjacents === 1 - this causes a skip on right arrow
-  // handle range === 9 && adjacents === 2 - this causes a skip on right arrow
-  // core styling
 
   function reducer(state, { type, payload }) {
     switch (type) {
@@ -56,8 +48,8 @@ function Paginator({ data, children, records, rows, adjacents }) {
 
   return (
     <Fragment>
-      {chunkedPages[currentPage].map(({ title, value }) => {
-        return <Card key={title} title={title} value={value} />
+      {chunkedPages[currentPage].map(props => {
+        return children(props)
       })}
       <nav>
         <ul className='o-row'>
@@ -134,7 +126,7 @@ function Paginator({ data, children, records, rows, adjacents }) {
 export default Paginator
 
 Paginator.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.func.isRequired,
   records: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   rows: PropTypes.number.isRequired,
   Pages: PropTypes.number,

@@ -9,12 +9,11 @@ function App() {
   return (
     <Router>
       <section>
-        <Paginator
-          children={<Card />}
-          records={mockData}
-          rows={5}
-          adjacents={2}
-        />
+        <Paginator records={mockData} rows={5} adjacents={2}>
+          {({ title, value }) => (
+            <Card key={title} title={title} value={value} />
+          )}
+        </Paginator>
         <Switch>
           <Route exact path='/' component={Home} />
           <Route exact path='/resume' component={Resume} />
