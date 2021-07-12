@@ -1,16 +1,14 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import { USFlag } from '../Flag'
 
 const Footer = props => {
-    return (
-        <div>
-            
-        </div>
-    )
-}
-
-Footer.propTypes = {
-
+  return (
+    <div className='c-footer o-row o-justify--end'>
+      <div className='o-row__item o-row__item--shrink'>
+        <USFlag />
+      </div>
+    </div>
+  )
 }
 
 export default Footer

@@ -1,0 +1,14 @@
+@use "sass:math";
+
+.c-home__splash-link {
+  border: math.div($global-unit-size-tiny, 2) solid $color-white;
+  padding: $global-unit-size-tiny $global-unit-size-small;
+}
+
+.c-home__splash-link--border-left {
+  border-radius: $global-unit-size-tiny 0 0 $global-unit-size-tiny;
+}
+
+.c-home__splash-link--border-right {
+  border-radius: 0 $global-unit-size-tiny $global-unit-size-tiny 0;
+}

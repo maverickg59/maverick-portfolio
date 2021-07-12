@@ -1,2 +1,14 @@
 @import 'maverick-toolkit-css';
 @import './scss/index';
+
+#app-portfolio {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: #000000;
+  color: #fff;
+
+  .c-portfolio__content {
+    flex: 1 0 auto;
+  }
+}

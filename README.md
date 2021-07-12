@@ -34,21 +34,27 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ### TODO:
 
+Reverse engineer your success
+
 - Pages
-  - Home
+  - /Home
     - Image
     - Contact
     - Bio
     - Interests
-  - Resume
+  - /Resume
     - Technical skills
     - Experience
     - Project links
-  - Projects
+  - /Tools
+    - Dev Tools
+      - em to px & px to em calculator
+      - e.which calculator (keycodes)
     - Really intense CAPTCHA
       - tic-tac-toe
       - paper, rock, scissors
       - keyboard autocross
+        - typing speed and accuracy test, beat my average scores and you win
     - Calculators
       - Mortgage Calculator
       - Loan amortization
@@ -57,3 +63,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
     - Investing
       - Stock Buying Checklist
       - Stock Selling Checklist
+  - /Projects
+    - CLTTF
+  - /Military
+    - More info about my time in the military

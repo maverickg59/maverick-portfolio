@@ -1,6 +1,22 @@
 export const NAVBAR_LINKS = [
-  { url: '/', label: 'Bio', color: 'link-light' },
-  { url: '/resume', label: 'Resume', color: 'link-light' },
-  { url: '/projects', label: 'Projects', color: 'link-light' },
-  { url: '/calculators', label: 'Resume', color: 'link-light' },
+  {
+    url: '/',
+    title: 'Bio',
+    ariaLabel: 'link to bio page',
+  },
+  {
+    url: '/home',
+    title: 'Home',
+    ariaLabel: 'link to home page',
+  },
+  {
+    url: '/resume',
+    title: 'Resume',
+    ariaLabel: 'link to download resume',
+  },
+  {
+    url: '/projects',
+    title: 'Projects',
+    ariaLabel: 'link to projects page',
+  },
 ]
