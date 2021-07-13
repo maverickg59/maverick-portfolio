@@ -3,5 +3,5 @@
 .c-header__logo {
   border: math.div($global-unit-size-tiny, 2) solid $color-white;
   border-radius: $global-unit-size-tiny;
-  padding: $global-unit-size-tiny $global-unit-size-small;
+  padding: math.div($global-unit-size-tiny, 2) $global-unit-size-small;
 }

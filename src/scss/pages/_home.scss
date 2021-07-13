@@ -2,13 +2,15 @@
 
 .c-home__splash-link {
   border: math.div($global-unit-size-tiny, 2) solid $color-white;
-  padding: $global-unit-size-tiny $global-unit-size-small;
+  padding: $global-unit-size-small $global-unit-size-medium;
 }
 
-.c-home__splash-link--border-left {
+.c-home__splash-link--border-r {
   border-radius: $global-unit-size-tiny 0 0 $global-unit-size-tiny;
+  border-right: math.div($global-unit-size-tiny, 4) solid $color-white;
 }
 
-.c-home__splash-link--border-right {
+.c-home__splash-link--border-l {
   border-radius: 0 $global-unit-size-tiny $global-unit-size-tiny 0;
+  border-left: math.div($global-unit-size-tiny, 4) solid $color-white;
 }

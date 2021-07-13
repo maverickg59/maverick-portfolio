@@ -2,9 +2,12 @@ import { React } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { Home, Resume, Projects, Calculators } from './pages'
 import { Header, Footer } from './components'
+import { iconLibrary } from 'maverick-toolkit-react'
+import { icons } from './lib'
 import './index.scss'
 
 function App() {
+  iconLibrary(icons)
   return (
     <Router>
       <Header />
