@@ -1,0 +1,7 @@
+@use "sass:math";
+
+.c-header__logo {
+  border: math.div($global-unit-size-tiny, 2) solid $color-white;
+  border-radius: $global-unit-size-tiny;
+  padding: math.div($global-unit-size-tiny, 2) $global-unit-size-small;
+}

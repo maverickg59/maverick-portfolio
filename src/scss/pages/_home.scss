@@ -1,0 +1,61 @@
+@use "sass:math";
+
+.c-home__title {
+  font-family: arial;
+  font-weight: 900;
+  animation: background 20s linear infinite;
+  background: linear-gradient(
+    90deg,
+    #96301e 0%,
+    #c7c958 10%,
+    #1c932e 20%,
+    #4aa5a8 30%,
+    #7374bf 40%,
+    #a15d90 50%,
+    #69878c 60%,
+    #52afb7 70%,
+    #4eaa4c 80%,
+    #96301e 90%,
+    #c7c958 100%
+  );
+  background-size: 1000% 100%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  span {
+    display: block;
+  }
+  .c-home__title-row--s {
+    font-size: 1.95rem;
+  }
+  .c-home__title-row--m {
+    font-size: 4.25rem;
+  }
+  .c-home__title-row--l {
+    font-size: 8rem;
+  }
+}
+
+@keyframes background {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.c-home__splash-link {
+  border: math.div($global-unit-size-tiny, 2) solid $color-white;
+  padding: $global-unit-size-small $global-unit-size-medium;
+}
+
+.c-home__splash-link--border-r {
+  border-radius: $global-unit-size-tiny 0 0 $global-unit-size-tiny;
+  border-right: math.div($global-unit-size-tiny, 4) solid $color-white;
+}
+
+.c-home__splash-link--border-l {
+  border-radius: 0 $global-unit-size-tiny $global-unit-size-tiny 0;
+  border-left: math.div($global-unit-size-tiny, 4) solid $color-white;
+}
