@@ -5,10 +5,24 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background: #000000;
-  color: #fff;
+
+  .c-portfolio__container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
 
   .c-portfolio__content {
     flex: 1 0 auto;
+  }
+
+  .u-background-color--black {
+    background: #000000;
+    color: #fff;
+  }
+
+  .u-background-color--gray {
+    background: #a4a7b9;
+    color: #000000;
   }
 }
